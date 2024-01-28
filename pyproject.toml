@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "spacy-fastapi-ja"
+version = "0.1.0"
+description = ""
+authors = ["shihono <26952997+shihono@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "^0.109.0"
+uvicorn = "^0.27.0"
+spacy = "^3.7.2"
+ja-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/ja_core_news_sm-3.7.0/ja_core_news_sm-3.7.0.tar.gz"}
+pydantic = "^2.5.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

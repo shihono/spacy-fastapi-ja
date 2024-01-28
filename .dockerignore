@@ -1,0 +1,28 @@
+# Git
+.git
+.gitignore
+
+# Virtual environment
+.env
+.venv/
+venv/
+
+# Packages
+*.egg
+*.egg-info
+build/
+eggs/
+parts/
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+
+# Byte-compiled / optimized / DLL files
+**/__pycache__/
+**/*.py[cod]
+
+.idea
