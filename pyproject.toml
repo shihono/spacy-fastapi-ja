@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "spacy-fastapi-ja"
+name = "app"
 version = "0.1.0"
 description = ""
 authors = ["shihono <26952997+shihono@users.noreply.github.com>"]

@@ -54,3 +54,5 @@ output/
 myflaskapp/
 bower_components
 .idea/
+**/__pycache__/
+.python-version
