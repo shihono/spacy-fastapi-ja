@@ -1,5 +1,29 @@
 # spacy-fastapi-ja
 
+Spacy ([Japanese model](https://spacy.io/models/ja)) + FastAPI
+
+This is based on [cookiecutter-spacy-fastapi](https://github.com/microsoft/cookiecutter-spacy-fastapi)
+
+## Quick Start
+
+This project requires [Poetry](https://python-poetry.org/).
+
+```python
+# install
+poetry install
+
+# run locally
+poetry run uvicorn app.api:app --reload
+# or 
+poetry run python main.py
+
+# test
+poetry run pytest
+```
+
+--- 
+---
+
 spaCy FastAPI for Custom Cognitive Skills in Azure Search
 
 ---

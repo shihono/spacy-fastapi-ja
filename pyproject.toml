@@ -12,8 +12,24 @@ uvicorn = "^0.27.0"
 spacy = "^3.7.2"
 ja-core-news-sm = {url = "https://github.com/explosion/spacy-models/releases/download/ja_core_news_sm-3.7.0/ja_core_news_sm-3.7.0.tar.gz"}
 pydantic = "^2.5.3"
+starlette = "^0.36.3"
+httpx = "^0.26.0"
 
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.1"
+mypy = "^1.8.0"
+black = "^24.2.0"
+isort = "^5.13.2"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.isort]
+profile = "black"

@@ -3,20 +3,22 @@
 
 from collections import defaultdict
 
-from fastapi import Body, FastAPI
-# from starlette.middleware.cors import CORSMiddleware
-from starlette.responses import RedirectResponse
 import spacy
 import srsly
-# import uvicorn
+from fastapi import Body, FastAPI
+
+# from starlette.middleware.cors import CORSMiddleware
+from starlette.responses import RedirectResponse
 
 from app.models import (
     ENT_PROP_MAP,
+    RecordsEntitiesByTypeResponse,
     RecordsRequest,
     RecordsResponse,
-    RecordsEntitiesByTypeResponse,
 )
 from app.spacy_extractor import SpacyExtractor
+
+# import uvicorn
 
 
 app = FastAPI(
@@ -37,7 +39,9 @@ def docs_redirect():
 
 
 @app.post("/entities", response_model=RecordsResponse, tags=["NER"])
-async def extract_entities(body: RecordsRequest = Body(..., example=example_request)):
+async def extract_entities(
+    body: RecordsRequest = Body(..., examples=[example_request])
+):
     """Extract Named Entities from a batch of Records."""
 
     documents = []
@@ -56,11 +60,14 @@ async def extract_entities(body: RecordsRequest = Body(..., example=example_requ
 @app.post(
     "/entities_by_type", response_model=RecordsEntitiesByTypeResponse, tags=["NER"]
 )
-async def extract_entities_by_type(body: RecordsRequest = Body(..., example=example_request)):
+async def extract_entities_by_type(
+    body: RecordsRequest = Body(..., examples=[example_request])
+):
     """Extract Named Entities from a batch of Records separated by entity label.
-        This route can be used directly as a Cognitive Skill in Azure Search
-        For Documentation on integration with Azure Search, see here:
-        https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-interface"""
+    This route can be used directly as a Cognitive Skill in Azure Search
+    For Documentation on integration with Azure Search, see here:
+    https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-interface
+    """
 
     documents = []
 

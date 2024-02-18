@@ -2,6 +2,7 @@
 # Licensed under the MIT License.
 
 from typing import Dict, List
+
 # import spacy
 from spacy.language import Language
 
@@ -15,7 +16,7 @@ class SpacyExtractor:
         self, nlp: Language, input_id_col: str = "id", input_text_col: str = "text"
     ):
         """Initialize the SpacyExtractor pipeline.
-        
+
         nlp (spacy.language.Language): pre-loaded spacy language model
         input_text_col (str): property on each document to run the model on
         input_id_col (str): property on each document to correlate with request
@@ -35,11 +36,11 @@ class SpacyExtractor:
 
     def extract_entities(self, records: List[Dict[str, str]]):
         """Apply the pre-trained model to a batch of records
-        
+
         records (list): The list of "document" dictionaries each with an
             `id` and `text` property
-        
-        RETURNS (list): List of responses containing the id of 
+
+        RETURNS (list): List of responses containing the id of
             the correlating document and a list of entities.
         """
         ids = (doc[self.input_id_col] for doc in records)
