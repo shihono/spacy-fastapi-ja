@@ -10,6 +10,7 @@ from fastapi import Body, FastAPI
 # from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import RedirectResponse
 
+from app.logger import set_logger
 from app.models import (
     ENT_PROP_MAP,
     RecordsEntitiesByTypeResponse,
@@ -20,7 +21,7 @@ from app.spacy_extractor import SpacyExtractor
 
 # import uvicorn
 
-
+logger = set_logger(__name__)
 app = FastAPI(
     title="spacy-fastapi-ja",
     version="1.0",
@@ -29,7 +30,9 @@ app = FastAPI(
 
 example_request = srsly.read_json("app/data/example_request.json")
 
-nlp = spacy.load("ja_core_news_sm")
+model_name = "ja_core_news_sm"
+nlp = spacy.load(model_name)
+logger.info(f"Load spacy {model_name}")
 extractor = SpacyExtractor(nlp)
 
 
