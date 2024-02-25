@@ -38,7 +38,7 @@ def load_wiki_corpus(dir_path):
     return data_list
 
 
-test_data = load_wiki_corpus()
+test_data = load_wiki_corpus(WIKI_CORPUS)
 
 
 class SpacyFastAPIUser(HttpUser):
@@ -51,7 +51,7 @@ class SpacyFastAPIUser(HttpUser):
     @task
     def entities(self):
         data = next(self.test_data)
-        data_json = {"values": [data]}
+        data_json = {"values": data}
         self.client.post(
             "/entities",
             headers={"Content-Type": "application/json", "accept": "application/json"},
