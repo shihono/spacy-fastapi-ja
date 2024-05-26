@@ -10,6 +10,5 @@ with open("stats.txt") as f:
             mem_usage = data["MemUsage"].split("/")[0].strip()[:-3]
             mem_usage_list.append(mem_usage)
 
-with open("stats_memory.txt", "w")as f:
+with open("stats_memory.txt", "w") as f:
     f.writelines("\n".join(mem_usage_list))
-
