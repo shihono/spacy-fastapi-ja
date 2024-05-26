@@ -25,4 +25,8 @@ lib64
 **/__pycache__/
 **/*.py[cod]
 
+.mypy_cache/
+.pytest_cache/
 .idea
+images/
+locustfile.py
