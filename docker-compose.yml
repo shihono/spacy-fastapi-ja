@@ -7,5 +7,6 @@ services:
       - ./:/usr/src/
     ports:
       - "8080:8080"
-    command: uvicorn main:app --reload --host 0.0.0.0 --port 8080
     mem_limit: 1g
+    environment:
+      - GUNICORN_CONF=gunicorn.conf.py
